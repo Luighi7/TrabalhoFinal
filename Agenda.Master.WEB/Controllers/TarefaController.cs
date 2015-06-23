@@ -52,7 +52,7 @@ namespace Agenda.Master.WEB.Controllers
         private SelectList GetAgendars()
         {
             var xpto = agendarService.RetrieveAll();
-            return new SelectList(xpto, "Id", "Name");
+            return new SelectList(xpto, "Id", "Descricao");
         }
 
         // POST: /Tarefa/Create
@@ -60,7 +60,7 @@ namespace Agenda.Master.WEB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Produto,DataConclusao,AgendaId")] Tarefa tarefa)
+        public ActionResult Create([Bind(Include = "Id,Descricao,Produto,DataConclusao,AgendaId")] Tarefa tarefa)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace Agenda.Master.WEB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Produto,DataConclusao,AgendaId")] Tarefa tarefa)
+        public ActionResult Edit([Bind(Include = "Id,Descricao,Produto,DataConclusao,AgendaId")] Tarefa tarefa)
         {
             if (ModelState.IsValid)
             {
