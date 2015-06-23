@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>FluTe</id>
+    <version>0.5.0.1</version>
+    <title>FluTe</title>
+    <authors>Greg Ros</authors>
+    <owners>Greg Ros</owners>
+    <licenseUrl>http://flute.codeplex.com/license</licenseUrl>
+    <projectUrl>http://flute.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>* Define string.format-like templates using *named* tokens.
+* A fluent API that makes template configuration clear and intuitive.
+* Access properties and parameterless methods of input values using a simple syntax.
+* Use delegates to process inputs. Tell your template to join a list, make a string uppercase, or calculate a difference -- decleratively. 
+* No awkward string-based syntax that needs to be learned, and no tables you need to search through to find the type of formatting you need. All processing syntax is 100% language integrated.
+* All objects are totally immutable. No need to worry about thread-safety.
+* High-performance parser written using the FParsec parser-combinator library that performs a single pass on the input. Performs exponentially better than regex-based solutions.</description>
+    <summary>FluTe is an advanced alternative to the string.Format method, written using F# and C#.</summary>
+    <releaseNotes>Depends on FParsec and ImpromptuInterface, but these dependencies are included in this release.</releaseNotes>
+    <copyright>Greg Rosenbaum</copyright>
+    <tags>text-templating string.format formatting text-processing fluent</tags>
+  </metadata>
+</package>

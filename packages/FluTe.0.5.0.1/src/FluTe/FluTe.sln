@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluTeLib.Fluent", "FluTeLib.Fluent\FluTeLib.Fluent.csproj", "{D82BA709-6E4C-485A-915A-3670B1258406}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FluteLib.Parser", "FluTeLib.Parser\FluteLib.Parser.fsproj", "{716A47DE-A3CB-47F3-BFC1-AE0096D92FA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluTeTesting", "FluTeTesting\FluTeTesting.csproj", "{2F0E1213-543D-482C-96E2-AE7F5918AAED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluTeLib.Core", "FluTeLib.Core\FluTeLib.Core.csproj", "{606EC0C5-DF94-47DD-8E62-5725FA971254}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D82BA709-6E4C-485A-915A-3670B1258406}.Debug|x86.ActiveCfg = Debug|x86
+		{D82BA709-6E4C-485A-915A-3670B1258406}.Debug|x86.Build.0 = Debug|x86
+		{D82BA709-6E4C-485A-915A-3670B1258406}.Release|x86.ActiveCfg = Release|x86
+		{D82BA709-6E4C-485A-915A-3670B1258406}.Release|x86.Build.0 = Release|x86
+		{716A47DE-A3CB-47F3-BFC1-AE0096D92FA2}.Debug|x86.ActiveCfg = Debug|x86
+		{716A47DE-A3CB-47F3-BFC1-AE0096D92FA2}.Debug|x86.Build.0 = Debug|x86
+		{716A47DE-A3CB-47F3-BFC1-AE0096D92FA2}.Release|x86.ActiveCfg = Release|x86
+		{716A47DE-A3CB-47F3-BFC1-AE0096D92FA2}.Release|x86.Build.0 = Release|x86
+		{2F0E1213-543D-482C-96E2-AE7F5918AAED}.Debug|x86.ActiveCfg = Debug|x86
+		{2F0E1213-543D-482C-96E2-AE7F5918AAED}.Debug|x86.Build.0 = Debug|x86
+		{2F0E1213-543D-482C-96E2-AE7F5918AAED}.Release|x86.ActiveCfg = Release|x86
+		{2F0E1213-543D-482C-96E2-AE7F5918AAED}.Release|x86.Build.0 = Release|x86
+		{606EC0C5-DF94-47DD-8E62-5725FA971254}.Debug|x86.ActiveCfg = Debug|x86
+		{606EC0C5-DF94-47DD-8E62-5725FA971254}.Debug|x86.Build.0 = Debug|x86
+		{606EC0C5-DF94-47DD-8E62-5725FA971254}.Release|x86.ActiveCfg = Release|x86
+		{606EC0C5-DF94-47DD-8E62-5725FA971254}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = TIL\TIL.csproj
+	EndGlobalSection
+EndGlobal

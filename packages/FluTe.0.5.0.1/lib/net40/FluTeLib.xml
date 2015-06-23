@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>FluTeLib</name>
+    </assembly>
+    <members>
+        <member name="T:FluTeLib.Fluent.FluTeInstance">
+            <summary>
+            A concrete instance of a FluTe template. Doesn't let you add processing steps, but does let you bind inputs. This class is immutable.
+            </summary>
+        </member>
+        <member name="M:FluTeLib.Fluent.IBindInputConfiguration.Bind(System.String,System.Object)">
+            <summary>
+            Binds the specified value to the input.
+            </summary>
+            <param name="label">The label of the input..</param>
+            <param name="value">The value you want.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.FluTeInstance.Bind(System.String,System.Object)">
+            <summary>
+            Explicitly binds a value to a named input.
+            </summary>
+            <param name="label">The name of the input.</param>
+            <param name="value">The value.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.FluTeInstance.Resolve">
+            <summary>
+            Resolves this instance to its finalized product string, if all inputs have been bound to values. 
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if the template has unbound inputs.</exception>
+            <returns />
+        </member>
+        <member name="T:FluTeLib.Fluent.DelegateProcessingStep`2">
+            <summary>
+              The class for a processing step that wraps a delegate. Cannot be serialized normally.
+            </summary>
+            <typeparam name="TIn" />
+            <typeparam name="TOut" />
+        </member>
+        <member name="T:FluTeLib.Fluent.BindExtensions">
+            <summary>
+              A class that provides extension methods for binding inputs.
+            </summary>
+        </member>
+        <member name="T:FluTeLib.Fluent.IBindToConfigurator">
+            <summary>
+            An interfance that allows you to bind a value to a pre-specified input label.
+            </summary>
+        </member>
+        <member name="M:FluTeLib.Fluent.IBindToConfigurator.To(System.Object)">
+            <summary>
+            Binds a value to the input.
+            </summary>
+            <param name="value">The value to bind.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.IForClauseOrigin.Finally">
+            <summary>
+            Stop configuring the current processing steps, and start configuring the template's post-processing steps.
+            </summary>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.IForClauseOrigin.For``1(System.String)">
+            <summary>
+            Stop configuring the current processing steps, and start configuring the processing steps of a named token.
+            </summary>
+            <typeparam name="TOut">The initial type you expect the token's value to be.</typeparam>
+            <param name="identifier">The identifier of the token.</param>
+            <returns />
+        </member>
+        <member name="T:FluTeLib.Fluent.FluTePrototype">
+            <summary>
+              A prototype of a FluTe template. Lets you build on it by e.g. adding processing steps and binding static inputs. This class is immutable.
+            </summary>
+        </member>
+        <member name="M:FluTeLib.Fluent.FluTePrototype.Bind(System.String,System.Object)">
+            <summary>
+            Constructs a concrete instance of htis prototype using the Construct() method, and explicitly binds a value to one of its inputs.
+            </summary>
+            <param name="label">The label of the input.</param>
+            <param name="value">The value.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.FluTePrototype.Construct">
+            <summary>
+            Explicitly constructs a concrete instance of this prototype.
+            </summary>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.FluTePrototype.BindStatic(System.String,System.Func{System.Object})">
+            <summary>
+            Binds one of this prototype's static $ inputs to a parameterless method that gets invoked when the template is resolved.
+            </summary>
+            <param name="label">The label of the input.</param>
+            <param name="definition">The definition of the static input.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.FluTePrototype.Finally">
+            <summary>
+            Lets you configure the template's post-processing steps.
+            </summary>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.FluTePrototype.For``1(System.String)">
+            <summary>
+            Lets you configure a token's processing steps by name.
+            </summary>
+            <typeparam name="TOut">The type of value you expect the token's initial input to be.</typeparam>
+            <param name="identifier">The identifier of the token.</param>
+            <returns />
+        </member>
+        <member name="T:FluTeLib.Fluent.IForClause`1">
+            <summary>
+            A strongly-typed interface that lets you configure the processing steps of a template.
+            </summary>
+            <typeparam name="TOut">The type of the input.</typeparam>
+        </member>
+        <member name="T:FluTeLib.Fluent.IForClause">
+            <summary>
+            An interface that lets you configure the processing steps of a template.
+            </summary>
+        </member>
+        <member name="M:FluTeLib.Fluent.IForClause.Attach``1(FluTeLib.Core.Token.IProcessingStep{System.Object,``0})">
+            <summary>
+            Attaches the specified step.
+            </summary>
+            <typeparam name="TNew">The output type of the step</typeparam>
+            <param name="step">The step.</param>
+            <returns />
+        </member>
+        <member name="P:FluTeLib.Fluent.IForClause.Next">
+            <summary>
+            Stops configuring the current processing steps, and returns a copy of the underlying template.
+            </summary>
+        </member>
+        <member name="M:FluTeLib.Fluent.IForClause`1.Attach``1(FluTeLib.Core.Token.IProcessingStep{`0,``0})">
+            <summary>
+            Attaches the specified step.
+            </summary>
+            <typeparam name="TNew">The output type of the step</typeparam>
+            <param name="step">The step.</param>
+            <returns />
+        </member>
+        <member name="T:FluTeLib.Fluent.ProcessingExtensions">
+            <summary>
+            Provides extension methods for attaching processing steps to tokens.
+            </summary>
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.As``1(FluTeLib.Fluent.IForClause)">
+            <summary>
+            Casts the value from one type to another.
+            </summary>
+            <typeparam name="TOut">The type of the cast.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.AsSeq``1(FluTeLib.Fluent.IForClause)">
+            <summary>
+            Casts the value to a sequence of a particular type.
+            </summary>
+            <typeparam name="T">The type of the sequence.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.SeqCast``1(FluTeLib.Fluent.IForClause{System.Collections.IEnumerable})">
+            <summary>
+            Casts an arbitrary sequence to a specific sequence using the LINQ <code>Cast<typeparamref name="T" />()</code> method.
+            </summary>
+            <typeparam name="T">The type of the target sequence.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.SeqOfType``1(FluTeLib.Fluent.IForClause{System.Collections.IEnumerable})">
+            <summary>
+            Casts an arbitrary sequence to a specific sequence using the LINQ <code>OfType()</code> method.
+            </summary>
+            <typeparam name="T">The type of the target sequence.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.AsSeq(FluTeLib.Fluent.IForClause)">
+            <summary>
+            Casts an arbitrary value to a sequence of type <code>Object</code>.
+            </summary>
+            <param name="config">The for clause to which the step is added.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.BindStatic(FluTeLib.Fluent.FluTePrototype,System.Func{System.String,System.Object}[])">
+            <summary>
+            Binds one or more static inputs using implicit lambda syntax.
+            </summary>
+            <param name="template">The target template.</param>
+            <param name="definitions">The lambdas or other methods that define the static inputs. The parameter names must match input labels.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Do``2(FluTeLib.Fluent.IForClause{``0},System.Func{``0,``1})">
+            <summary>
+            Performs a strongly typed, arbitrary transformation.
+            </summary>
+            <typeparam name="TIn">The type of the input.</typeparam>
+            <typeparam name="TOut">The type of the output.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <param name="transform">The transformation to perform.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Do``1(FluTeLib.Fluent.IForClause,System.Func{System.Object,``0})">
+            <summary>
+             Performs a dynamically typed, arbitrary transformation.
+            </summary>
+            <typeparam name="TOut">The type of the output.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <param name="transform">The transformation to perform.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Do2``3(FluTeLib.Fluent.IForClause{FluTeLib.Core.Input.IMultiInput},System.Func{``0,``1,``2})">
+            <summary>
+            On for clauses that configure tokens with two inputs, performs a strongly typed, arbitrary transformation that makes use of both inputs.
+            </summary>
+            <typeparam name="TIn1">The type of the first input.</typeparam>
+            <typeparam name="TIn2">The type of the second input</typeparam>
+            <typeparam name="TOut">The type of the output.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <param name="transform">The transformation.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Do2``1(FluTeLib.Fluent.IForClause{FluTeLib.Core.Input.IMultiInput},System.Func{System.Object,System.Object,``0})">
+            <summary>
+            On for clauses that configure tokens with two inputs, performs a dynamically typed, arbitrary transformation that makes use of both inputs.
+            </summary>
+            <typeparam name="TOut">The type of the output.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <param name="transform">The transformation.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Do3``4(FluTeLib.Fluent.IForClause{FluTeLib.Core.Input.IMultiInput},System.Func{``0,``1,``2,``3})">
+            <summary>
+            On for clauses that configure tokens with three inputs, performs a strongly typed, arbitrary transformation that makes use of all inputs.
+            </summary>
+            <typeparam name="TIn1">The type of the first input.</typeparam>
+            <typeparam name="TIn2">The type of the seconbd input</typeparam>
+            <typeparam name="TIn3">The type of the third input</typeparam>
+            <typeparam name="TOut">The type of the output.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <param name="transform">The transformation.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Do3``1(FluTeLib.Fluent.IForClause{FluTeLib.Core.Input.IMultiInput},System.Func{System.Object,System.Object,System.Object,``0})">
+            <summary>
+            On for clauses that configure tokens with three inputs, performs a dynamically typed, arbitrary transformation that makes use of all inputs.
+            </summary>
+            <typeparam name="TOut">The type of the output.</typeparam>
+            <param name="config">The for clause to which the step is added.</param>
+            <param name="transform">The transformation.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.For``2(FluTeLib.Fluent.IForClauseOrigin,System.Func{``0,``1})">
+            <summary>
+            Begins configuring a token with the specified identifier, and adds a processing step to it. The token is chosen based on the parameter name of the supplied method.
+            </summary>
+            <typeparam name="TIn">The type of the input value.</typeparam>
+            <typeparam name="TOut">The type of the output value.</typeparam>
+            <param name="config">The config.</param>
+            <param name="transform">The transformation. The token is chosen based on the input parameter name of this method.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.For(FluTeLib.Fluent.IForClauseOrigin,System.String)">
+            <summary>
+            Begins configuring a dynamically typed token with the specified identifier.
+            </summary>
+            <param name="config">The config.</param>
+            <param name="identifier">The identifier.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.For``1(FluTeLib.Fluent.IForClauseOrigin,System.Func{System.Object,``0})">
+            <summary>
+              Begins configuring the specified token, and attaches a processing step to it. The token is chosen based on the parameter name of the supplied method.
+            </summary>
+            <typeparam name="TOut">The type of the out.</typeparam>
+            <param name="config">The config.</param>
+            <param name="transform">The transformation.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.ForMany(FluTeLib.Fluent.IForClauseOrigin,System.String)">
+            <summary>
+            Begins configuring a single token that has many inputs.
+            </summary>
+            <param name="config">The config.</param>
+            <param name="identifier">The identifiero f hte token.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Select``2(FluTeLib.Fluent.IForClause{System.Collections.Generic.IEnumerable{``0}},System.Func{``0,``1})">
+            <summary>
+            Invokes the LINQ method <code>Select</code> on the input.
+            </summary>
+            <typeparam name="TIn">The type of the in.</typeparam>
+            <typeparam name="TOut">The type of the out.</typeparam>
+            <param name="config">The config.</param>
+            <param name="selector">The selector.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Where``1(FluTeLib.Fluent.IForClause{System.Collections.Generic.IEnumerable{``0}},System.Func{``0,System.Boolean})">
+            <summary>
+            Invokes the LINQ method <code>Where</code> on the input.
+            </summary>
+            <typeparam name="T" />
+            <param name="config">The config.</param>
+            <param name="predicate">The predicate.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.TextJoin(FluTeLib.Fluent.IForClause{System.Collections.Generic.IEnumerable{System.String}},System.String)">
+            <summary>
+            Joins a series of strings.
+            </summary>
+            <param name="config">The config.</param>
+            <param name="delimeter">The delimeter.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.Finally``1(FluTeLib.Fluent.IForClauseOrigin,System.Func{System.String,``0})">
+            <summary>
+            Begins configuring the post-processing steps of the template by adding a specific transformation.
+            </summary>
+            <typeparam name="TOut">The type of the output/</typeparam>
+            <param name="config">The config.</param>
+            <param name="transform">The transformation.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.ProcessingExtensions.WordJoin(FluTeLib.Fluent.IForClause{System.Collections.Generic.IEnumerable{System.String}},System.String,System.String)">
+            <summary>
+            Joins a series of strings using one delimeter, and the last item with a different delimeter, they way one might join a sequence of words.
+            </summary>
+            <param name="config">The config.</param>
+            <param name="delimeter">The delimeter.</param>
+            <param name="lastDelimeter">The last delimeter.</param>
+            <returns />
+        </member>
+        <member name="M:FluTeLib.Fluent.StringExtensions.Template(System.String)">
+            <summary>
+            Defines a FluTe template using the template string.
+            </summary>
+            <param name="str">The string.</param>
+            <returns />
+        </member>
+        <member name="T:FluTeLib.Fluent.FluTe">
+            <summary>
+              A static class that provides the core of FluTe operations.
+            </summary>
+        </member>
+        <member name="M:FluTeLib.Fluent.FluTe.Create(System.String)">
+            <summary>
+            Creates a new FluTe prototype template, which you can modify by e.g. adding processing steps.
+            </summary>
+            <param name="str" />
+            <returns />
+        </member>
+    </members>
+</doc>
